@@ -1,37 +1,41 @@
 {
-  "bin": {
-    "simple-pdf-tool": "jdeploy-bundle/jdeploy.js"
-  },
-  "author": "",
-  "description": "jDeploy Swing Starter Project",
-  "main": "index.js",
-  "preferGlobal": true,
-  "repository": "",
-  "version": "1.0.0",
-  "jdeploy": {
-    "jdk": false,
-    "javaVersion": "21",
-    "jar": "target/simple-pdf-tool-1.0-SNAPSHOT.jar",
-    "javafx": false,
-    "title": "Simple Pdf Tool",
-    "buildCommand": [
-      "./mvnw",
-      "package"
-    ]
-  },
-  "dependencies": {
-    "command-exists-promise": "^2.0.2",
-    "node-fetch": "2.6.7",
-    "shelljs": "^0.8.4",
-    "tar": "^4.4.8",
-    "yauzl": "^2.10.0"
-  },
-  "license": "ISC",
-  "name": "simple-pdf-tool",
-  "files": [
-    "jdeploy-bundle"
-  ],
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  }
+    "bin": {
+        "simple-pdf-tool": "jdeploy-bundle/jdeploy.js"
+    },
+    "author": "Cristian González Santos",
+    "description": "jDeploy Swing Starter Project",
+    "main": "index.js",
+    "preferGlobal": true,
+    "repository": "",
+    "version": "0.1-SNAPSHOT",
+    "jdeploy": {
+        "jdk": false,
+        "args": [
+            "-Xms128m",
+            "-Xmx512m"
+        ],
+        "buildCommand": [
+            "./mvnw",
+            "package"
+        ],
+        "javaVersion": "21",
+        "jar": "target\\simple-pdf-tool-0.1-SNAPSHOT.jar",
+        "javafx": false,
+        "title": "Simple PDF Tool"
+    },
+    "dependencies": {
+        "command-exists-promise": "^2.0.2",
+        "node-fetch": "2.6.7",
+        "shelljs": "^0.8.4",
+        "tar": "^4.4.8",
+        "yauzl": "^2.10.0"
+    },
+    "license": "ISC",
+    "name": "simple-pdf-tool",
+    "files": [
+        "jdeploy-bundle"
+    ],
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    }
 }
