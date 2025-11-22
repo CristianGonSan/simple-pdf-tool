@@ -5,7 +5,7 @@ import com.github.cristiangonsan.simplepdftool.PdfTool.PdfOperation;
 public class ConsoleText {
 
     public static final String MAIN_TEXT = """
-            ───────────── Simple PDF Tool v0.1 ─────────────
+            ───────────── Simple PDF Tool v0.1.1 ─────────────
             
             Utilidad sencilla y práctica para trabajar con archivos PDF.
             Elija una de las siguientes operaciones:
@@ -83,7 +83,7 @@ public class ConsoleText {
     public static String CREDITS = """
             ──────────────── Single PDF Tool ────────────────
             
-            Versión: 0.1
+            Versión: 0.1.1
             Desarrollador : Cristian González Santos
             Email         : cristiangonsan18@gmail.com
             Github        : https://github.com/CristianGonSan
