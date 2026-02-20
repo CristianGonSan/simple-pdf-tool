@@ -706,7 +706,7 @@ public class MainController {
 
         if (base == null) return null;
 
-        File newFolder = new File(base, folderName);
+        File newFolder = new File(base, folderName.trim());
 
         if (!newFolder.exists() && !newFolder.mkdirs()) {
             JOptionPane.showMessageDialog(frame, "No se pudo crear la carpeta: " + newFolder.getAbsolutePath());
