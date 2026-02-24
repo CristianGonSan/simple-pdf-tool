@@ -1,13 +1,11 @@
 {
-    "bin": {
-        "simple-pdf-tool": "jdeploy-bundle/jdeploy.js"
-    },
+    "bin": {"simple-pdf-tool": "jdeploy-bundle/jdeploy.js"},
     "author": "Cristian González Santos",
     "description": "Simple PDF tool that lets you merge images into a PDF, convert a PDF to images, combine multiple PDFs",
     "main": "index.js",
     "preferGlobal": true,
     "repository": "",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "jdeploy": {
         "jdk": false,
         "args": [
@@ -26,16 +24,12 @@
     "dependencies": {
         "command-exists-promise": "^2.0.2",
         "node-fetch": "2.6.7",
-        "shelljs": "^0.8.4",
         "tar": "^4.4.8",
-        "yauzl": "^2.10.0"
+        "yauzl": "^2.10.0",
+        "shelljs": "^0.8.4"
     },
     "license": "ISC",
     "name": "simple-pdf-tool",
-    "files": [
-        "jdeploy-bundle"
-    ],
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
-    }
+    "files": ["jdeploy-bundle"],
+    "scripts": {"test": "echo \"Error: no test specified\" && exit 1"}
 }

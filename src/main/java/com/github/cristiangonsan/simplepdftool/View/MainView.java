@@ -1,5 +1,6 @@
 package com.github.cristiangonsan.simplepdftool.View;
 
+import com.formdev.flatlaf.FlatDarkLaf;
 import com.github.cristiangonsan.simplepdftool.PdfTool.PdfPageLayout;
 import com.github.cristiangonsan.simplepdftool.Utils.FileSupport;
 
@@ -39,7 +40,7 @@ public class MainView {
 
 
     public MainView() {
-        setupLookAndFeel();
+        FlatDarkLaf.setup();
         frame = createMainFrame();
 
         JPanel topPanel = createMainOperationsPanel();
@@ -62,19 +63,6 @@ public class MainView {
 
         frame.setContentPane(base);
         frame.setLocationRelativeTo(null);
-    }
-
-
-
-    private void setupLookAndFeel() {
-        try {
-            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-            UIManager.put("Button.font", new Font("Segoe UI", Font.PLAIN, 14));
-            UIManager.put("Label.font", new Font("Segoe UI", Font.PLAIN, 14));
-            UIManager.put("TextField.font", new Font("Consolas", Font.PLAIN, 14));
-            UIManager.put("Button.focus", new Color(0, 0, 0, 0)); // sin borde de enfoque
-        } catch (Exception ignored) {
-        }
     }
 
     private JFrame createMainFrame() {
