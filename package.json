@@ -1,10 +1,10 @@
 {
     "bin": {"simple-pdf-tool": "jdeploy-bundle/jdeploy.js"},
     "author": "Cristian González Santos",
-    "description": "Simple PDF tool that lets you merge images into a PDF, convert a PDF to images, combine multiple PDFs",
+    "description": "Simple PDF tool that lets you merge images into a PDF, convert a PDF to images, combine multiple PDFs and split a PDF.",
     "main": "index.js",
     "preferGlobal": true,
-    "repository": "",
+    "repository": "https://github.com/CristianGonSan/simple-pdf-tool",
     "version": "0.1.2",
     "jdeploy": {
         "jdk": false,
@@ -17,7 +17,7 @@
             "package"
         ],
         "javaVersion": "21",
-        "jar": "target\\simple-pdf-tool-0.1.1.jar",
+        "jar": "target\\simple-pdf-tool-0.1.2.jar",
         "javafx": false,
         "title": "Simple PDF Tool"
     },
