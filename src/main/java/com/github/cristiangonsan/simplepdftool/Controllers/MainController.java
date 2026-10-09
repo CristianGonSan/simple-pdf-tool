@@ -357,8 +357,8 @@ public class MainController {
             File outputFile = chooseOutputFile("Resultado.pdf");
 
             if (outputFile != null) {
-                int startPage   = getNumeric(startPageField, 1);
-                int endPage     = getNumeric(endPageField, 1);
+                int startPage = getNumeric(startPageField, 1);
+                int endPage = getNumeric(endPageField, 1);
 
                 String text = "\n> Configuración del PDF:" +
                         "\n  - Pag. inicio : " + startPage +
@@ -549,28 +549,46 @@ public class MainController {
 
 
     private final DropTarget dropTarget = new DropTarget() {
-        public synchronized void drop(DropTargetDropEvent e) {
-            if (checkProcessing()) return;
+        @Override
+        public void drop(DropTargetDropEvent e) {
+            if (checkProcessing()) {
+                e.rejectDrop();
+                return;
+            }
             if (pdfOperation == null) {
+                e.rejectDrop();
                 JOptionPane.showMessageDialog(frame, "Seleccione una operación primero");
                 return;
             }
+            if (!e.isDataFlavorSupported(DataFlavor.javaFileListFlavor)) {
+                e.rejectDrop();
+                return;
+            }
+
             e.acceptDrop(DnDConstants.ACTION_COPY);
+            boolean success = false;
             try {
-                String path = e.getTransferable().getTransferData(DataFlavor.javaFileListFlavor).toString();
-                path = path.substring(1, path.length() - 1);
+                @SuppressWarnings("unchecked")
+                List<File> files = (List<File>) e.getTransferable()
+                        .getTransferData(DataFlavor.javaFileListFlavor);
 
-                File file = new File(path);
-
-                if (file.isFile()) {
-                    if (validateInputFile(file)) {
-                        addFile(file);
+                for (File file : files) {
+                    if (file.isFile()) {
+                        if (validateInputFile(file)) {
+                            addFile(file);
+                        }
+                    } else if (file.isDirectory()) {
+                        addFolder(file);
                     }
-                } else {
-                    addFolder(file);
                 }
+                success = true;
             } catch (UnsupportedFlavorException | IOException ex) {
-                throw new RuntimeException(ex);
+                ex.printStackTrace();
+                JOptionPane.showMessageDialog(frame,
+                        "No se pudo procesar lo arrastrado: " + ex.getMessage(),
+                        "Error", JOptionPane.ERROR_MESSAGE);
+            } finally {
+                e.dropComplete(success);
             }
         }
     };
@@ -597,8 +615,8 @@ public class MainController {
 
     private void addFolder(File folder) {
         File[] newFiles = switch (pdfOperation) {
-            case IMAGES_TO_PDF  -> folder.listFiles(FileSupport.IMAGE_FILE_NAME_FILTER);
-            case MERGE_PDFS     -> folder.listFiles(FileSupport.PDF_FILE_NAME_FILTER);
+            case IMAGES_TO_PDF -> folder.listFiles(FileSupport.IMAGE_FILE_NAME_FILTER);
+            case MERGE_PDFS -> folder.listFiles(FileSupport.PDF_FILE_NAME_FILTER);
             default -> null;
         };
 
@@ -687,6 +705,8 @@ public class MainController {
                         "Este archivo ya existe ¿Desea sobreescribirlo?",
                         "Sobreescribir", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
                     return file;
+                } else {
+                    return null;
                 }
             }
         } else {
