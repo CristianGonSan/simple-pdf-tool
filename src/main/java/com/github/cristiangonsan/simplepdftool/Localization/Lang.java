@@ -1,8 +1,6 @@
 package com.github.cristiangonsan.simplepdftool.Localization;
 
-import com.github.cristiangonsan.simplepdftool.Localization.Leguages.English;
-import com.github.cristiangonsan.simplepdftool.Localization.Leguages.Language;
-import com.github.cristiangonsan.simplepdftool.Localization.Leguages.Spanish;
+import com.github.cristiangonsan.simplepdftool.Localization.Leguages.*;
 
 import java.util.HashMap;
 import java.util.Locale;
@@ -17,6 +15,9 @@ public final class Lang {
     static {
         register(new Spanish());
         register(new English());
+        register(new Portuguese());
+        register(new French());
+        register(new Russian());
         use(Locale.getDefault().getLanguage());
     }
 
