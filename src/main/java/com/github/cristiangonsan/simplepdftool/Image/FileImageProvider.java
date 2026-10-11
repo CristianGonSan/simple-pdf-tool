@@ -5,7 +5,7 @@ import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.List;
 
 public class FileImageProvider implements ImageProvider, AutoCloseable {
 
@@ -16,7 +16,7 @@ public class FileImageProvider implements ImageProvider, AutoCloseable {
         this.files = files;
     }
 
-    public FileImageProvider(ArrayList<File> fileList) {
+    public FileImageProvider(List<File> fileList) {
         this.files = fileList.toArray(new File[0]);
     }
 

@@ -4,7 +4,7 @@
     <groupId>com.github.CristianGonSan</groupId>
     <artifactId>simple-pdf-tool</artifactId>
     <packaging>jar</packaging>
-    <version>0.1.2</version>
+    <version>0.2.0</version>
     <name>Simple PDF Tool</name>
     <description>Simple PDF tool that lets you merge images into a PDF, convert a PDF to images, combine multiple PDFs
         into one, or split a PDF.
@@ -59,6 +59,7 @@
                 <configuration>
                     <archive>
                         <manifest>
+                            <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>libs/</classpathPrefix>
                             <mainClass>

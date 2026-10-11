@@ -8,6 +8,7 @@ public interface StepListener {
     void onProgress(int currentStep, int totalSteps);
 
     void onSaving(File output);
+
     void onFinalized();
 
     void onError(Exception e);
