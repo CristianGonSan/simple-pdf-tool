@@ -11,7 +11,7 @@ A lightweight desktop application built with **Java Swing** that lets you work w
 
 ## Download
 
-Download the latest version for **Windows**, **macOS**, or **Linux** from the [Releases page](https://github.com/CristianGonSan/simple-pdf-tool/releases).
+Download the latest version for **Windows**, **macOS**, or **Linux** from the [Releases page](https://github.com/CristianGonSan/simple-pdf-tool/releases/tag/master).
 
 > Distributed and packaged using [jDeploy](https://www.jdeploy.com) — a tool for deploying Java desktop applications cross-platform with no manual JDK setup required for end users.
 
