@@ -6,11 +6,11 @@ import org.apache.pdfbox.multipdf.PDFMergerUtility;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.List;
 
 public class PdfMerger {
 
-    public static void merge(ArrayList<File> fileList, File outputFile, StepListener listener) {
+    public static void merge(List<File> fileList, File outputFile, StepListener listener) {
         merge(fileList.toArray(new File[0]), outputFile, listener);
     }
 

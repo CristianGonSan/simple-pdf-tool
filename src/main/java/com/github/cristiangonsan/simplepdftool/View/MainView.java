@@ -1,6 +1,7 @@
 package com.github.cristiangonsan.simplepdftool.View;
 
 import com.formdev.flatlaf.FlatDarkLaf;
+import com.github.cristiangonsan.simplepdftool.Localization.Lang;
 import com.github.cristiangonsan.simplepdftool.PdfTool.PdfPageLayout;
 import com.github.cristiangonsan.simplepdftool.Utils.FileSupport;
 
@@ -66,7 +67,7 @@ public class MainView {
     }
 
     private JFrame createMainFrame() {
-        JFrame f = new JFrame("Simple PDF Tool");
+        JFrame f = new JFrame(tr("view.main.title"));
         f.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         f.setSize(1000, 650);
         f.setMinimumSize(new Dimension(850, 550));
@@ -81,15 +82,15 @@ public class MainView {
     private JPanel createMainOperationsPanel() {
         JPanel topPanel = new JPanel(new GridLayout(1, 5, 10, 10));
         topPanel.setBorder(BorderFactory.createCompoundBorder(
-                BorderFactory.createTitledBorder("Operaciones principales"),
+                BorderFactory.createTitledBorder(tr("view.operations.title")),
                 BorderFactory.createEmptyBorder(5, 5, 5, 5)
         ));
 
-        imagesToPdfButton   = new JButton("Imágenes → PDF");
-        pdfToImagesButton   = new JButton("PDF → Imágenes");
-        mergePdfsButton     = new JButton("Unir PDFs");
-        splitPdfButton      = new JButton("Dividir PDF");
-        creditsButton       = new JButton("Créditos");
+        imagesToPdfButton   = new JButton(tr("view.operations.images_to_pdf"));
+        pdfToImagesButton   = new JButton(tr("view.operations.pdf_to_images"));
+        mergePdfsButton     = new JButton(tr("view.operations.merge_pdfs"));
+        splitPdfButton      = new JButton(tr("view.operations.split_pdf"));
+        creditsButton       = new JButton(tr("view.operations.credits"));
 
         imagesToPdfButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         pdfToImagesButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -120,34 +121,34 @@ public class MainView {
         JPanel filesPanel = new JPanel();
         filesPanel.setLayout(new BoxLayout(filesPanel, BoxLayout.Y_AXIS));
         filesPanel.setBorder(BorderFactory.createCompoundBorder(
-                BorderFactory.createTitledBorder("Archivos"),
+                BorderFactory.createTitledBorder(tr("view.sidebar.files.title")),
                 BorderFactory.createEmptyBorder(5, 5, 5, 5)
         ));
 
         JPanel actionsPanel = new JPanel();
         actionsPanel.setLayout(new BoxLayout(actionsPanel, BoxLayout.Y_AXIS));
         actionsPanel.setBorder(BorderFactory.createCompoundBorder(
-                BorderFactory.createTitledBorder("Acciones"),
+                BorderFactory.createTitledBorder(tr("view.sidebar.actions.title")),
                 BorderFactory.createEmptyBorder(5, 5, 5, 5)
         ));
 
         sidePanel.add(filesPanel);
         sidePanel.add(actionsPanel);
 
-        addFileButton = createSideButton("Agregar archivo");
+        addFileButton = createSideButton(tr("view.sidebar.add_file"));
         filesPanel.add(addFileButton);
         filesPanel.add(Box.createVerticalStrut(8));
 
-        addFolderButton = createSideButton("Agregar carpeta");
+        addFolderButton = createSideButton(tr("view.sidebar.add_folder"));
         filesPanel.add(addFolderButton);
         filesPanel.add(Box.createVerticalStrut(8));
         filesPanel.add(Box.createVerticalGlue());
 
-        clearButton = createSideButton("Limpiar lista");
+        clearButton = createSideButton(tr("view.sidebar.clear"));
         actionsPanel.add(clearButton);
         actionsPanel.add(Box.createVerticalStrut(8));
 
-        saveButton = createSideButton("Guardar resultado");
+        saveButton = createSideButton(tr("view.sidebar.save"));
         actionsPanel.add(saveButton);
         actionsPanel.add(Box.createVerticalStrut(8));
         actionsPanel.add(Box.createVerticalGlue());
@@ -181,7 +182,7 @@ public class MainView {
 
         JScrollPane consoleScroll = new JScrollPane(console);
         consoleScroll.setBorder(BorderFactory.createCompoundBorder(
-                BorderFactory.createTitledBorder("Consola de salida"),
+                BorderFactory.createTitledBorder(tr("view.console.title")),
                 BorderFactory.createEmptyBorder(5, 5, 5, 5)
         ));
 
@@ -201,7 +202,7 @@ public class MainView {
         parametersPanel.setMaximumSize(widthPanel);
 
         parametersPanel.setBorder(BorderFactory.createCompoundBorder(
-                BorderFactory.createTitledBorder("Parámetros"),
+                BorderFactory.createTitledBorder(tr("view.parameters.title")),
                 BorderFactory.createEmptyBorder(5, 5, 5, 5)
         ));
 
@@ -211,7 +212,6 @@ public class MainView {
         JPanel imagesToPdfParametersPanel   = createVerticalPanel();
 
         Dimension d1    = new Dimension(500, 30);
-        Dimension d2    = new Dimension(200, 25);
         Font font       = new Font("Segoe UI", Font.PLAIN, 14);
 
         pageOrientationCombo = new JComboBox<>(PdfPageLayout.PageOrientation.values());
@@ -274,18 +274,18 @@ public class MainView {
         startPageField.setPreferredSize(d1);
         endPageField.setPreferredSize(d1);
 
-        JLabel label = new JLabel("Sin parámetros");
+        JLabel label = new JLabel(tr("view.parameters.empty"));
 
         // Añadir elementos como pares verticales
-        imagesToPdfParametersPanel.add(createLabeledField("Orientación de página", pageOrientationCombo));
-        imagesToPdfParametersPanel.add(createLabeledField("Tamaño de página", pageSizesCombo));
-        imagesToPdfParametersPanel.add(createLabeledField("Margen (milímetros)", pageMargeField));
+        imagesToPdfParametersPanel.add(createLabeledField(tr("view.parameters.images_to_pdf.orientation"), pageOrientationCombo));
+        imagesToPdfParametersPanel.add(createLabeledField(tr("view.parameters.images_to_pdf.size"), pageSizesCombo));
+        imagesToPdfParametersPanel.add(createLabeledField(tr("view.parameters.images_to_pdf.margin"), pageMargeField));
 
-        pdfToImagesParametersPanel.add(createLabeledField("Formato de imagen:", imageFormatsCombo));
-        pdfToImagesParametersPanel.add(createLabeledField("DPI:", imageDpiCombo));
+        pdfToImagesParametersPanel.add(createLabeledField(tr("view.parameters.pdf_to_images.format"), imageFormatsCombo));
+        pdfToImagesParametersPanel.add(createLabeledField(tr("view.parameters.pdf_to_images.dpi"), imageDpiCombo));
 
-        slitPdfParametersPanel.add(createLabeledField("Página de inicio:", startPageField));
-        slitPdfParametersPanel.add(createLabeledField("Página final:", endPageField));
+        slitPdfParametersPanel.add(createLabeledField(tr("view.parameters.split_pdf.start_page"), startPageField));
+        slitPdfParametersPanel.add(createLabeledField(tr("view.parameters.split_pdf.end_page"), endPageField));
 
         emptyParametersPanel.add(label);
 
@@ -459,5 +459,9 @@ public class MainView {
 
     public JTextField getEndPageField() {
         return endPageField;
+    }
+
+    private String tr(String key, Object... args) {
+        return Lang.translate(key, args);
     }
 }

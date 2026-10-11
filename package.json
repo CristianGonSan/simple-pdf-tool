@@ -7,7 +7,7 @@
     "main": "index.js",
     "preferGlobal": true,
     "repository": "https://github.com/CristianGonSan/simple-pdf-tool",
-    "version": "0.1.2",
+    "version": "0.2.0",
     "jdeploy": {
         "jdk": false,
         "args": [
